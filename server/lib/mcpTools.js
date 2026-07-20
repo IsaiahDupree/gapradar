@@ -25,7 +25,7 @@ const asError = (err) => ({ isError: true, content: [{ type: 'text', text: `Erro
 // data comes from external app stores (an open, changing world).
 const RO = { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true };
 
-const UPGRADE_URL = `${(process.env.PUBLIC_BASE_URL || 'https://gapradar.vercel.app').replace(/\/+$/, '')}/upgrade`;
+const UPGRADE_URL = `${(process.env.PUBLIC_BASE_URL || 'https://getgapradar.vercel.app').replace(/\/+$/, '')}/upgrade`;
 const FREE_MONTHLY = Number(process.env.FREE_MONTHLY_CHECKS || 5);
 // Deep, cost-heavy tools are Pro-only; quick lookups are metered on the free tier.
 const PRO_ONLY = new Set(['find_platform_gaps', 'analyze_app_reviews', 'generate_build_dossier']);

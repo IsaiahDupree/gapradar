@@ -15,7 +15,7 @@ const env = Object.fromEntries(
     .map((l) => [l.slice(0, l.indexOf('=')), l.slice(l.indexOf('=') + 1)])
 );
 
-const BASE = env.NB_SERVER || 'https://gapradar.vercel.app';
+const BASE = env.NB_SERVER || 'https://getgapradar.vercel.app';
 const EMAIL = env.NB_EMAIL;
 const PASSWORD = env.NB_PASSWORD;
 

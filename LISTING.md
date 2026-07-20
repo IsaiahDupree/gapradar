@@ -11,9 +11,9 @@ SUBMISSION.md).
 
 | Field | Value |
 |---|---|
-| MCP Server URL | `https://gapradar.vercel.app/mcp` |
+| MCP Server URL | `https://getgapradar.vercel.app/mcp` |
 | Authentication | OAuth |
-| OAuth — the portal auto-discovers these from the URL's `/.well-known` metadata | authorization: `https://gapradar.vercel.app/oauth/authorize` · token: `https://gapradar.vercel.app/api/oauth/token` · registration (DCR): `https://gapradar.vercel.app/api/oauth/register` · PKCE S256 · scope `research` |
+| OAuth — the portal auto-discovers these from the URL's `/.well-known` metadata | authorization: `https://getgapradar.vercel.app/oauth/authorize` · token: `https://getgapradar.vercel.app/api/oauth/token` · registration (DCR): `https://getgapradar.vercel.app/api/oauth/register` · PKCE S256 · scope `research` |
 
 After entering the URL, click **Scan Tools** — it should discover all 7 tools.
 
@@ -26,10 +26,10 @@ After entering the URL, click **Scan Tools** — it should discover all 7 tools.
 | **Category** | Developer Tools |
 | **Developer Identity** | Business — Dupree Ops LLC *(the verified identity; requires ID verification first)* |
 | **Plugin Author** | Isaiah Dupree |
-| **Website URL** | `https://gapradar.vercel.app` |
-| **Customer support URL** | `https://gapradar.vercel.app/support` |
-| **Privacy policy URL** | `https://gapradar.vercel.app/privacy` |
-| **Terms of Service URL** | `https://gapradar.vercel.app/terms` |
+| **Website URL** | `https://getgapradar.vercel.app` |
+| **Customer support URL** | `https://getgapradar.vercel.app/support` |
+| **Privacy policy URL** | `https://getgapradar.vercel.app/privacy` |
+| **Terms of Service URL** | `https://getgapradar.vercel.app/terms` |
 | **Demo Recording URL** ⚠️ required | *(a hosted screen-recording of the connector working — you must record this)* |
 | **Directory icon / composer icon** | `assets/icon-512.png` (512×512 PNG) |
 | **Commerce & Purchasing** | leave unchecked — paid plans are billed externally by Stripe, not through ChatGPT |

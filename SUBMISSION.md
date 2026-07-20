@@ -7,9 +7,9 @@ connector review), what's already done, and what only the account owner can do.
 
 | Requirement | Status | Proof |
 |---|---|---|
-| MCP server, streamable HTTP, OAuth 2.1 + PKCE + DCR | ✅ live | `https://gapradar.vercel.app/mcp`; e2e suite |
-| Privacy policy | ✅ live | https://gapradar.vercel.app/privacy (accurate: Supabase + Vercel + Stripe subprocessors; only public store data; no user private data retained) |
-| Support page | ✅ live | https://gapradar.vercel.app/support |
+| MCP server, streamable HTTP, OAuth 2.1 + PKCE + DCR | ✅ live | `https://getgapradar.vercel.app/mcp`; e2e suite |
+| Privacy policy | ✅ live | https://getgapradar.vercel.app/privacy (accurate: Supabase + Vercel + Stripe subprocessors; only public store data; no user private data retained) |
+| Support page | ✅ live | https://getgapradar.vercel.app/support |
 | Rate limiting on auth + OAuth endpoints | ✅ live | signup 5/10min, login 10/10min, authorize 30/10min, token 60/min, register 20/hr — 429 verified in e2e |
 | **Reviewer demo mode** | ✅ live | Any account with email `reviewer@gapradar.demo` runs all 7 tools against a built-in set of sample opportunities and is treated as **paid** — so `find_platform_gaps`, `analyze_app_reviews`, and `generate_build_dossier` work too, 24/7 with **no store-data backend configured**. Real accounts are unaffected. Verified in e2e (search / compare / gaps / reviews / score / dossier with no live source). |
 | **Stripe billing (Free / Builder / Pro / Studio)** | ✅ live | Free tier capped at 5 opportunity checks/month; paid plans (Builder $29, Pro $79, Studio $249) unlock cross-platform gap detection, review clustering, dossiers, and API — gated by Stripe subscription (test mode). `get_plan` surfaces the plan + `/upgrade` link. When Stripe is unconfigured, every account is treated as paid. |
@@ -48,7 +48,7 @@ done by you.)*
       Identity (custom comboboxes), author, Website/Support/Privacy/Terms URLs,
       Demo Recording URL (required — the hosted screen-recording link), two icon
       uploads. All paste-ready in **LISTING.md**.
-   2. **MCP** — MCP Server URL `https://gapradar.vercel.app/mcp`;
+   2. **MCP** — MCP Server URL `https://getgapradar.vercel.app/mcp`;
       Authentication **OAuth** (auto-discovers config from our `/.well-known`
       metadata); **Domain verification** — the form issues a token you must
       serve at `/.well-known/openai-apps-challenge` (our `server/api/challenge.js`
@@ -149,5 +149,5 @@ connector automation: **[kit/README.md](./kit/README.md)**.
 
 ```bash
 node test/e2e-oauth.mjs        # 22 checks, includes demo-mode + rate limits
-curl -s https://gapradar.vercel.app/api/health   # jwtSecretSet true; storeSourceConfigured reflects demo vs live
+curl -s https://getgapradar.vercel.app/api/health   # jwtSecretSet true; storeSourceConfigured reflects demo vs live
 ```

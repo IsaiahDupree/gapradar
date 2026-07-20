@@ -14,7 +14,7 @@ Include: affected component, a clear description, reproduction steps / PoC, and 
 ## Scope
 
 **In scope**
-- The hosted relay: `https://gapradar.vercel.app` (OAuth, token, MCP, and billing endpoints).
+- The hosted relay: `https://getgapradar.vercel.app` (OAuth, token, MCP, and billing endpoints).
 - This repository's code: `server/`, `kit/`.
 
 **Out of scope**

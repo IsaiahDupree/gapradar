@@ -1,6 +1,6 @@
 {
   "$comment": "GapRadar listing for the OpenAI plugin directory (7-section form). Same schema as the sibling OpenAI listing templates in this kit. GapRadar is a CLOUD MCP connector (no Mac agent): a Free tier (5 checks/mo) plus Stripe-billed paid plans (Builder $29 / Pro $79 / Studio $249). Secrets (reviewer demo password, Stripe keys) are NOT stored here; read from ../.env.local by env var name (DEMO_PASSWORD). PENDING before submit: a hosted demo VIDEO (info.demoRecordingUrl, currently 'PENDING') and the domain-verification token (set OPENAI_APPS_CHALLENGE on Vercel when the MCP section issues it). Live store data requires DEMANDRADAR_URL + DEMANDRADAR_API_KEY on the server; without them GapRadar runs in demo mode and the reviewer demo account serves sample opportunities so every tool works with no backend.",
-  "mcpUrl": "https://gapradar.vercel.app/mcp",
+  "mcpUrl": "https://getgapradar.vercel.app/mcp",
   "authentication": "OAuth",
   "info": {
     "name": "GapRadar",
@@ -11,10 +11,10 @@
     "developerIdentity": "Dupree Ops",
     "developerIdentityNote": "Substring matched against the verified identities in the dropdown (Dupree Ops LLC). Identity verification already completed for the earlier Dupree Ops submissions.",
     "pluginAuthor": "Isaiah Dupree",
-    "websiteUrl": "https://gapradar.vercel.app",
-    "supportUrl": "https://gapradar.vercel.app/support",
-    "privacyUrl": "https://gapradar.vercel.app/privacy",
-    "termsUrl": "https://gapradar.vercel.app/terms",
+    "websiteUrl": "https://getgapradar.vercel.app",
+    "supportUrl": "https://getgapradar.vercel.app/support",
+    "privacyUrl": "https://getgapradar.vercel.app/privacy",
+    "termsUrl": "https://getgapradar.vercel.app/terms",
     "demoRecordingUrl": "PENDING",
     "demoRecordingNote": "REQUIRED by OpenAI. Upload the recorded demo to YouTube (Unlisted) and replace 'PENDING' with the URL. Demo arc against the reviewer demo account: search_store_apps (rename) -> compare_platform_availability (rename, Microsoft present / Mac weak) -> find_platform_gaps (windows->mac, ranks the Native Mac batch file renamer, score 87) -> analyze_app_reviews (batch-file-renamer complaint clusters) -> score_app_opportunity (batch-file-renamer, 87) -> generate_build_dossier (batch-file-renamer, decision approve).",
     "directoryIcon": "../assets/icon-512.png",
@@ -23,7 +23,7 @@
     "commerceNote": "LEFT UNCHECKED on the submission form. At review time billing is disabled (no STRIPE_* env set -> billingEnabled=false -> every account behaves as a paid plan), so there is no live purchase link-out and the reviewer never encounters a paywall. The paid plans (Builder / Pro / Studio) are sold on the product's own website (/upgrade -> Stripe), not through ChatGPT. OpenAI's directory only supports physical-good sales, not digital subscriptions, so keep monetization off-platform."
   },
   "domainVerification": {
-    "note": "The MCP section issues a token you must serve at /.well-known/openai-apps-challenge on the MCP hostname (gapradar.vercel.app). The server serves it from the OPENAI_APPS_CHALLENGE env var. Set it on Vercel (`vercel env add OPENAI_APPS_CHALLENGE production`), redeploy, then click Verify Domain. The token is a PUBLIC value, not a secret.",
+    "note": "The MCP section issues a token you must serve at /.well-known/openai-apps-challenge on the MCP hostname (getgapradar.vercel.app). The server serves it from the OPENAI_APPS_CHALLENGE env var. Set it on Vercel (`vercel env add OPENAI_APPS_CHALLENGE production`), redeploy, then click Verify Domain. The token is a PUBLIC value, not a secret.",
     "wellKnownPath": "/.well-known/openai-apps-challenge"
   },
   "reviewerDemo": {

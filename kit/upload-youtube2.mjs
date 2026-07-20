@@ -15,7 +15,7 @@ const VIDEO = process.env.VIDEO || '/Users/isaiahdupree/Desktop/gapradar-demo.mp
 const SHOTS = path.join(process.cwd(), 'screenshots');
 const TITLE = process.env.TITLE || 'GapRadar — find app-store gaps worth building (demo)';
 const DESC = process.env.DESC ||
-  'A short demo of the GapRadar MCP connector inside ChatGPT: finding Windows utilities with no good Mac equivalent, comparing where an app exists across stores, analyzing review complaints, scoring an opportunity 0-100, and generating a Codex-ready build dossier — run against sample opportunities (no backend needed). https://gapradar.vercel.app · https://github.com/IsaiahDupree/gapradar';
+  'A short demo of the GapRadar MCP connector inside ChatGPT: finding Windows utilities with no good Mac equivalent, comparing where an app exists across stores, analyzing review complaints, scoring an opportunity 0-100, and generating a Codex-ready build dossier — run against sample opportunities (no backend needed). https://getgapradar.vercel.app · https://github.com/IsaiahDupree/gapradar';
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const log = (m) => console.log(`[yt2 ${new Date().toTimeString().slice(0, 8)}] ${m}`);

@@ -29,11 +29,11 @@ GapRadar reads **only public market and store data** through licensed / approved
 
 ## For users — 3 steps
 
-**1. Create your account** at **[gapradar.vercel.app](https://gapradar.vercel.app)** and pick a plan (Free to start, no card required).
+**1. Create your account** at **[getgapradar.vercel.app](https://getgapradar.vercel.app)** and pick a plan (Free to start, no card required).
 
 **2. Add the connector.** In your MCP client, add a custom connector pointing at the GapRadar MCP Server URL and sign in with OAuth:
 
-- **ChatGPT:** Settings → **Connectors** → turn on **Developer mode** → **Create** a custom connector → paste **`https://gapradar.vercel.app/mcp`** → Authentication **OAuth** → sign in & **Allow**.
+- **ChatGPT:** Settings → **Connectors** → turn on **Developer mode** → **Create** a custom connector → paste **`https://getgapradar.vercel.app/mcp`** → Authentication **OAuth** → sign in & **Allow**.
 - **Claude / Codex:** add the same URL as a custom MCP connector and authorize via OAuth.
 
 **3. Ask it to find gaps.** In a new chat:
@@ -76,7 +76,7 @@ GapRadar is free to start. Upgrade when you want cross-platform gap detection, r
 | **Studio** | **$249/mo** | 5 seats · 1,000 scans / mo · white-label reports · full API · AppFleet / GitHub-Codex handoffs |
 | **Enterprise** | Custom | Volume, SSO, custom sources, SLAs |
 
-Run `get_plan` in any chat to see your current plan plus an upgrade link. The server enforces the Free monthly cap and gates the paid tools by your Stripe subscription. Upgrade at **[gapradar.vercel.app/upgrade](https://gapradar.vercel.app/upgrade)**.
+Run `get_plan` in any chat to see your current plan plus an upgrade link. The server enforces the Free monthly cap and gates the paid tools by your Stripe subscription. Upgrade at **[getgapradar.vercel.app/upgrade](https://getgapradar.vercel.app/upgrade)**.
 
 > When Stripe is **not** configured (e.g. a self-hosted instance), every account is treated as **paid** so all seven tools are available.
 
