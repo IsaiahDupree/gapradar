@@ -15,7 +15,7 @@
     "supportUrl": "https://getgapradar.vercel.app/support",
     "privacyUrl": "https://getgapradar.vercel.app/privacy",
     "termsUrl": "https://getgapradar.vercel.app/terms",
-    "demoRecordingUrl": "PENDING",
+    "demoRecordingUrl": "https://youtu.be/Ya-qQE0lRJ0",
     "demoRecordingNote": "REQUIRED by OpenAI. Upload the recorded demo to YouTube (Unlisted) and replace 'PENDING' with the URL. Demo arc against the reviewer demo account: search_store_apps (rename) -> compare_platform_availability (rename, Microsoft present / Mac weak) -> find_platform_gaps (windows->mac, ranks the Native Mac batch file renamer, score 87) -> analyze_app_reviews (batch-file-renamer complaint clusters) -> score_app_opportunity (batch-file-renamer, 87) -> generate_build_dossier (batch-file-renamer, decision approve).",
     "directoryIcon": "../assets/icon-512.png",
     "composerIcon": "../assets/icon-512.png",
