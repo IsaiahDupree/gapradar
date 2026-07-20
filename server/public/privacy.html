@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — GapRadar</title>
+<style>
+  :root { --bg:#0f1115; --card:#181b22; --text:#e8eaf0; --muted:#9aa1af; --accent:#f5b942; --border:#2a2f3a; }
+  * { box-sizing:border-box; margin:0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--text); display:flex; justify-content:center; padding:40px 16px; }
+  main { max-width:720px; width:100%; line-height:1.65; }
+  h1 { font-size:26px; margin-bottom:4px; } h1 span{color:var(--accent);}
+  h2 { font-size:17px; margin:26px 0 8px; }
+  p, li { color:var(--muted); font-size:15px; margin-bottom:10px; }
+  ul { padding-left:20px; }
+  b { color:var(--text); }
+  .updated { font-size:13px; color:var(--muted); margin-bottom:22px; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Gap<span>Radar</span> Privacy Policy</h1>
+  <p class="updated">Last updated: July 19, 2026</p>
+
+  <p>GapRadar is a hosted research connector that lets an AI assistant (such as ChatGPT, Claude, or Codex) compare <b>public</b> app-store market data — rankings, ratings, reviews, pricing, and availability across the Apple App Store, Google Play, and Microsoft Store — to surface underserved app opportunities. GapRadar works only with public market data; it never accesses any private account, file, or device of yours. GapRadar is operated by Dupree Ops LLC.</p>
+
+  <h2>Data we collect and why</h2>
+  <ul>
+    <li><b>Account data:</b> your email address, a salted, hashed password (scrypt), and your plan/subscription status (Free, Builder, Pro, or Studio). Used solely to operate your account and apply your plan. We never store plaintext passwords.</li>
+    <li><b>OAuth tokens:</b> standard access/refresh tokens so your AI assistant can call GapRadar on your behalf. Refresh tokens rotate on every use.</li>
+    <li><b>Usage counters:</b> the number of opportunity checks and scans you run, so we can enforce plan limits. We do not build behavioral profiles from this.</li>
+    <li><b>Research requests in transit:</b> when your assistant asks GapRadar to search or compare stores, the request and its public-data result pass through our job queue transiently (encrypted Supabase Postgres, in our own project) with a short time-to-live of seconds, and are not logged, indexed, or retained.</li>
+  </ul>
+
+  <h2>What we do NOT do</h2>
+  <ul>
+    <li>No access to your private accounts, files, devices, contacts, email, messages, or anything on your computer — GapRadar reads only public app-store market data.</li>
+    <li>No selling or sharing of personal data with third parties for their own purposes.</li>
+    <li>No advertising, tracking, surveillance, or behavioral profiling.</li>
+    <li>No collection or storage of payment card data (Stripe handles card details for billing), health records, or government identifiers.</li>
+  </ul>
+
+  <h2>Where our market data comes from</h2>
+  <p>GapRadar compares only public app-store market data, obtained through <b>licensed or approved sources</b>: Google Play data via <b>RapidAPI</b>; Apple App Store data via the approved App Store <b>RSS feeds</b> and the <b>iTunes Search API</b> (we do not scrape Apple); and public Microsoft Store listings. We never bypass any store's access controls, authentication, or terms of service, and we never collect any user's private store account data.</p>
+
+  <h2>Data recipients (subprocessors)</h2>
+  <p>Infrastructure, data, and billing: <b>Vercel</b> (application hosting), <b>Supabase</b> (account records &amp; transient job queue, Postgres), <b>RapidAPI</b> (delivers public Google Play market data), <b>Resend</b> (sends the one-time email-address verification message — receives only your email address), and <b>Stripe</b> (payment processor for paid subscriptions — receives your email address and payment details to process billing; we store only the resulting plan status and never see or store your card numbers). Your AI assistant provider (e.g., OpenAI or Anthropic) processes the content you exchange with it under its own privacy policy.</p>
+
+  <h2>Plans &amp; billing</h2>
+  <p>GapRadar offers a <b>Free</b> tier (5 opportunity checks per month) and paid <b>Builder</b> ($29/month), <b>Pro</b> ($79/month), and <b>Studio</b> ($249/month) subscriptions that unlock deep scans, gap detection, review clustering, build dossiers, and API access. Payments are handled by <b>Stripe</b>; we receive only your resulting plan status and never see or store your card numbers.</p>
+
+  <h2>Retention</h2>
+  <p>Research requests in transit: seconds (automatic expiry). Account records, plan status, and usage counters: until you delete your account. OAuth refresh tokens: 90 days or until revoked/rotated.</p>
+
+  <h2>Your rights &amp; deletion</h2>
+  <p>Email us to access or delete your account data at any time. Revoking the GapRadar connector in your AI assistant immediately severs its ability to call GapRadar on your behalf, regardless of any tokens outstanding.</p>
+
+  <h2>Security</h2>
+  <p>All traffic is TLS-encrypted. Authentication uses HMAC-signed tokens with PKCE-protected OAuth flows.</p>
+
+  <h2>Trademarks &amp; independence</h2>
+  <p>GapRadar is an independent tool operated by Dupree Ops LLC and is not affiliated with, endorsed by, or sponsored by Apple, Google, or Microsoft. App Store is a trademark of Apple Inc.; Google Play is a trademark of Google LLC; Microsoft Store is a trademark of Microsoft Corporation.</p>
+
+  <h2>Contact</h2>
+  <p>Dupree Ops LLC · Isaiah Dupree · Questions or requests: <a href="mailto:isaiahdupree33@gmail.com">isaiahdupree33@gmail.com</a> · <a href="/support">Support</a></p>
+</main>
+</body>
+</html>
