@@ -1,0 +1,60 @@
+{
+  "$comment": "GapRadar listing for the OpenAI plugin directory (7-section form). Same schema as the sibling OpenAI listing templates in this kit. GapRadar is a CLOUD MCP connector (no Mac agent): a Free tier (5 checks/mo) plus Stripe-billed paid plans (Builder $29 / Pro $79 / Studio $249). Secrets (reviewer demo password, Stripe keys) are NOT stored here; read from ../.env.local by env var name (DEMO_PASSWORD). PENDING before submit: a hosted demo VIDEO (info.demoRecordingUrl, currently 'PENDING') and the domain-verification token (set OPENAI_APPS_CHALLENGE on Vercel when the MCP section issues it). Live store data requires DEMANDRADAR_URL + DEMANDRADAR_API_KEY on the server; without them GapRadar runs in demo mode and the reviewer demo account serves sample opportunities so every tool works with no backend.",
+  "mcpUrl": "https://getgapradar.vercel.app/mcp",
+  "authentication": "OAuth",
+  "info": {
+    "name": "GapRadar",
+    "subtitle": "Find app-store gaps to build",
+    "subtitleNote": "Subtitle MUST be 30 characters or fewer (OpenAI validates this). This is 28.",
+    "description": "GapRadar helps app builders find underserved opportunities across the app stores — before they spend weeks coding. It compares the Apple App Store, Google Play, and the Microsoft Store on rankings, reviews, pricing, and platform availability to surface where real demand exists but no good product does: a strong Windows utility with no decent Mac equivalent, a category full of one-star complaints, a workflow that lives on one platform and is missing on another. Ask a question and it searches store apps, compares where a product exists, finds cross-platform gaps, mines review complaints into clusters, scores an opportunity 0-100 with a breakdown, and produces a Codex-ready build dossier you can hand straight to a coding agent. It's a market-intelligence + product-decision connector, not a build tool — GapRadar researches and scores, it doesn't ship the app for you. Positioning is workflow-clone, not carbon-copy: it points you at the underserved workflow to build natively for a new platform, and it declines to copy a specific named app or its screenshots 1:1. Free tier covers 5 opportunity checks a month; paid plans (Builder $29, Pro $79, Studio $249, billed by Stripe) unlock the gap finder, review analysis, and build dossiers. Uses public app-store data via licensed/approved sources.",
+    "category": "Developer Tools",
+    "developerIdentity": "Dupree Ops",
+    "developerIdentityNote": "Substring matched against the verified identities in the dropdown (Dupree Ops LLC). Identity verification already completed for the earlier Dupree Ops submissions.",
+    "pluginAuthor": "Isaiah Dupree",
+    "websiteUrl": "https://getgapradar.vercel.app",
+    "supportUrl": "https://getgapradar.vercel.app/support",
+    "privacyUrl": "https://getgapradar.vercel.app/privacy",
+    "termsUrl": "https://getgapradar.vercel.app/terms",
+    "demoRecordingUrl": "https://youtu.be/Ya-qQE0lRJ0",
+    "demoRecordingNote": "REQUIRED by OpenAI. Upload the recorded demo to YouTube (Unlisted) and replace 'PENDING' with the URL. Demo arc against the reviewer demo account: search_store_apps (rename) -> compare_platform_availability (rename, Microsoft present / Mac weak) -> find_platform_gaps (windows->mac, ranks the Native Mac batch file renamer, score 87) -> analyze_app_reviews (batch-file-renamer complaint clusters) -> score_app_opportunity (batch-file-renamer, 87) -> generate_build_dossier (batch-file-renamer, decision approve).",
+    "directoryIcon": "../assets/icon-512.png",
+    "composerIcon": "../assets/icon-512.png",
+    "commerceLinksOutForPurchases": false,
+    "commerceNote": "LEFT UNCHECKED on the submission form. At review time billing is disabled (no STRIPE_* env set -> billingEnabled=false -> every account behaves as a paid plan), so there is no live purchase link-out and the reviewer never encounters a paywall. The paid plans (Builder / Pro / Studio) are sold on the product's own website (/upgrade -> Stripe), not through ChatGPT. OpenAI's directory only supports physical-good sales, not digital subscriptions, so keep monetization off-platform."
+  },
+  "domainVerification": {
+    "note": "The MCP section issues a token you must serve at /.well-known/openai-apps-challenge on the MCP hostname (getgapradar.vercel.app). The server serves it from the OPENAI_APPS_CHALLENGE env var. Set it on Vercel (`vercel env add OPENAI_APPS_CHALLENGE production`), redeploy, then click Verify Domain. The token is a PUBLIC value, not a secret.",
+    "wellKnownPath": "/.well-known/openai-apps-challenge"
+  },
+  "reviewerDemo": {
+    "note": "Reviewers use these to test GapRadar 24/7 with no backend (demo mode). The account authenticates on the OAuth consent page with email + password; the password lives in ../.env.local (DEMO_PASSWORD), never in this file. Enter the same values verbatim in the Testing section's Test credentials box. The demo account serves server-side SAMPLE store apps (e.g. 'Bulk Rename Utility' by Microsoft, 'NameChanger' on Mac) and sample opportunities ('batch-file-renamer' = Native Mac batch file renamer, source Windows -> target Mac, score 87; 'clipboard-cloud-sync', score 78), and is provisioned so every tool (including the Pro tools) works without DEMANDRADAR_URL/DEMANDRADAR_API_KEY. Reviewers can call get_plan to confirm the account's plan.",
+    "email": "reviewer@gapradar.demo",
+    "passwordEnvVar": "DEMO_PASSWORD"
+  },
+  "prompts": [
+    "Find Windows utilities with strong demand and no good Mac equivalent",
+    "Score the batch file renamer opportunity and give me a build dossier",
+    "Compare where a clipboard manager exists across app stores"
+  ],
+  "promptsNote": "Up to 3 showcase prompts (Prompts section). They render as @Plugin chat bubbles.",
+  "testPrompts": [
+    { "prompt": "Find Windows utilities with strong demand and no good Mac equivalent" },
+    { "prompt": "Score the batch file renamer opportunity and give me a build dossier" },
+    { "prompt": "Compare where a clipboard manager exists across app stores" }
+  ],
+  "testCases": [
+    { "scenario": "Search store apps by keyword", "prompt": "Search the app stores for rename utilities", "tools": "search_store_apps", "expected": "Returns matching store apps for 'rename' — including 'Bulk Rename Utility' (Microsoft Store, Windows) and 'NameChanger' (Mac App Store) — each with platform, ratings, and pricing pulled from the sample dataset." },
+    { "scenario": "Compare where a product exists across platforms", "prompt": "Where do rename tools exist across the app stores?", "tools": "compare_platform_availability", "expected": "Shows platform availability for the 'rename' category: strong presence on Microsoft/Windows (e.g. Bulk Rename Utility) and weak coverage on Mac — flagging Mac as the underserved platform for this workflow." },
+    { "scenario": "Find cross-platform gaps (Pro)", "prompt": "Find Windows utilities with strong demand and no good Mac equivalent", "tools": "find_platform_gaps", "expected": "A Pro tool; the demo account can run it. For source=windows -> target=mac it ranks the top gap first: 'batch-file-renamer' (Native Mac batch file renamer) with an opportunity score of 87, framed as a workflow to build natively for Mac (workflow-clone, not a copy)." },
+    { "scenario": "Score an opportunity 0-100", "prompt": "Score the batch file renamer opportunity", "tools": "score_app_opportunity", "expected": "For opportunityId 'batch-file-renamer' returns a score of 87 with a component breakdown (demand, competition weakness, cross-platform gap, monetization, build effort) explaining why it scores high." },
+    { "scenario": "Generate a build dossier (Pro)", "prompt": "Generate a build dossier for the batch file renamer opportunity", "tools": "generate_build_dossier", "expected": "A Pro tool; the demo account can run it. For opportunityId 'batch-file-renamer' returns a Codex-ready build dossier (target platform, differentiating features drawn from competitor complaints, scope, and a decision of 'approve') that can be handed to a coding agent." }
+  ],
+  "testCasesNote": "Testing section requires EXACTLY 5 positive test cases; run against the reviewer demo account's sample store apps and opportunities. The demo account can run the Pro tools (find_platform_gaps, generate_build_dossier). Reviewers can also run get_plan and analyze_app_reviews (batch-file-renamer complaint clusters: no regex rules, crashes on large folders).",
+  "negativeTestCases": [
+    { "scenario": "A request to actually BUILD or ship the app, not research it. GapRadar only researches, compares, scores, and writes a build dossier — it does not write the application or submit it to a store, so it should not trigger to 'build' or 'publish' an app.", "prompt": "Go ahead and build the Mac batch file renamer and submit it to the App Store for me." },
+    { "scenario": "A request to clone a specific named app 1:1 or copy its screenshots/assets. GapRadar declines copycatting — it finds the underserved workflow to build natively (workflow-clone), it does not reproduce a named competitor pixel-for-pixel.", "prompt": "Make an exact clone of the top-ranked rename app and copy its screenshots and UI." },
+    { "scenario": "An abstract 'what should I build?' with no market, category, platform, or store context to research. There is nothing to compare or score, so GapRadar should not trigger.", "prompt": "I want to be a founder — what should I build?" }
+  ],
+  "negativeTestCasesNote": "Testing section requires EXACTLY 3 negative test cases (prompts where the app should NOT trigger).",
+  "releaseNotes": "Initial release. GapRadar helps app builders find app-store gaps worth building — before they spend weeks coding. It compares the Apple App Store, Google Play, and the Microsoft Store on rankings, reviews, pricing, and availability to surface underserved opportunities, mines review complaints into clusters, scores each opportunity 0-100 with a breakdown, and produces a Codex-ready build dossier for a coding agent. Positioning is workflow-clone, not carbon-copy: it points you at the underserved workflow to build natively, and declines to copy a named app 1:1. Free tier covers 5 opportunity checks a month; paid plans (Builder $29, Pro $79, Studio $249, billed by Stripe) unlock the gap finder, review analysis, and build dossiers. Live store data uses public app-store sources via licensed/approved access."
+}
